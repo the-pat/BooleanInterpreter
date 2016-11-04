@@ -192,9 +192,9 @@ class Interpreter(object):
         if self.lex.type == Enum.IMPLY:
             self.lex = self.get()
             if self.OT():
-                val0 = self.stack.pop()
-                val1 = self.stack.pop()
-                self.stack.push("F" if (val0 == "T" and val1 == "F") else "T")
+                valR = self.stack.pop()
+                valL = self.stack.pop()
+                self.stack.push("F" if (valL == "T" and valR == "F") else "T")
                 return self.IT_Tail()
         elif self.lex.type in {Enum.PERIOD, Enum.CLOSED_PAREN}:
             return True
